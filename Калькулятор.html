@@ -5,7 +5,7 @@
 </head>
 <style>
 .error {
- border: solid thin red;
+ border: solid 2px red;
 }
 </style>
 <body>
@@ -25,7 +25,7 @@
  </p>
  <div id="input-fields">
  <label>x1 =</label>
- <input type="text" id="input1" min=0 max=200>
+ <input type="text" id="input1" min=0 max=200 class="">
  <label>y1 =</label>
  <input type="text" id="input2" min=0 max=200 onclick="notErr('input2')"><label></label><br>
  <label>x2 =</label>
@@ -102,35 +102,35 @@ function calculate() {
 
   if (isNaN(parseFloat(input1)) || !isFinite(input1)) {
    let input1_error = document.getElementById("input1");
-   input1_error.style.border="solid 2px red";
+   input1_error.classList.add("error");
   }
   else {
    let input1_error = document.getElementById("input1");
-   input1_error.style.border="";
+   input1_error.classList.remove("error");
   }
   if (isNaN(parseFloat(input2)) || !isFinite(input2)) {
    let input2_error = document.getElementById("input2");
-   input2_error.style.border="solid 2px red";
+   input2_error.classList.add("error");
   }
   else {
    let input2_error = document.getElementById("input2");
-   input2_error.style.border="";
+   input2_error.classList.remove("error");
   }
   if (isNaN(parseFloat(input3)) || !isFinite(input3)) {
    let input3_error = document.getElementById("input3");
-   input3_error.style.border="solid 2px red";
+   input3_error.classList.add("error");
   }
   else {
    let input3_error = document.getElementById("input3");
-   input3_error.style.border="";
+   input3_error.classList.remove("error");
   }
   if (isNaN(parseFloat(input4)) || !isFinite(input4)) {
    let input4_error = document.getElementById("input4");
-   input4_error.style.border="solid 2px red";
+   input4_error.classList.add("error");
   }
   else {
    let input4_error = document.getElementById("input4");
-   input4_error.style.border="";
+   input4_error.classList.remove("error");
   }
 	
  if (isNaN(parseFloat(input1)) || isNaN(parseFloat(input2)) || isNaN(parseFloat(input3)) || isNaN(parseFloat(input4)) || !isFinite(input1) || !isFinite(input2) || !isFinite(input3) || !isFinite(input4)) {
@@ -178,7 +178,7 @@ function calculate() {
   if (!document.getElementById("task1").selected && !document.getElementById("task2").selected && !document.getElementById("task3").selected && !document.getElementById("task4").selected) {
    document.getElementById("output").innerHTML = "<p>Выберите хотя бы одну операцию!</p>";
    let error = document.getElementById("sel");
-   error.style.border="solid 2px red";
+   error.classList.add("error");
   }
  }
  else {
@@ -216,7 +216,7 @@ function calculate() {
   if (!document.getElementById("task1").selected && !document.getElementById("task2").selected && !document.getElementById("task3").selected && !document.getElementById("task4").selected) {
    document.getElementById("output").innerHTML = "<p>Выберите хотя бы одну операцию!</p>";
    let error = document.getElementById("sel");
-   error.style.border="solid 2px red";
+   error.classList.add("error");
   }
  }
 }
@@ -227,10 +227,10 @@ function clearf() {
  document.getElementById("input3").value = "";
  document.getElementById("input4").value = "";
  
- document.getElementById("input1").style.border = "";
- document.getElementById("input2").style.border = "";
- document.getElementById("input3").style.border = "";
- document.getElementById("input4").style.border = "";
+ document.getElementById("input1").classList.remove("error");
+ document.getElementById("input2").classList.remove("error");
+ document.getElementById("input3").classList.remove("error");
+ document.getElementById("input4").classList.remove("error");
 
  document.getElementById("output").innerHTML = "";
 
@@ -241,35 +241,35 @@ function clearf() {
 }
 
 input1.onclick = function notErr() {
- this.style.border = "";
+ this.classList.remove("error");
  if (document.getElementById("input1").style.border === "" && document.getElementById("input2").style.border === "" && document.getElementById("input3").style.border === "" && document.getElementById("input4").style.border === "") {
   document.getElementById("output").innerHTML = "";
  }
 }
 
 input2.onclick = function notErr() {
- this.style.border = "";
+ this.classList.remove("error");
  if (document.getElementById("input1").style.border === "" && document.getElementById("input2").style.border === "" && document.getElementById("input3").style.border === "" && document.getElementById("input4").style.border === "") {
   document.getElementById("output").innerHTML = "";
  }
 }
 
 input3.onclick = function notErr() {
- this.style.border = "";
+ this.classList.remove("error");
  if (document.getElementById("input1").style.border === "" && document.getElementById("input2").style.border === "" && document.getElementById("input3").style.border === "" && document.getElementById("input4").style.border === "") {
   document.getElementById("output").innerHTML = "";
  }
 }
 
 input4.onclick = function notErr() {
- this.style.border = "";
+ this.classList.remove("error");
  if (document.getElementById("input1").style.border === "" && document.getElementById("input2").style.border === "" && document.getElementById("input3").style.border === "" && document.getElementById("input4").style.border === "") {
   document.getElementById("output").innerHTML = "";
  }
 }
 
 sel.onfocus = function notErrS() {
- this.style.border = "";
+ this.classList.remove("error");
  document.getElementById("output").innerHTML = "";
 }
 
